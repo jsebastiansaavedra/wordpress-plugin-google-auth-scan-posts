@@ -72,16 +72,15 @@ class Auth extends Base {
 	 *
 	 * @return boolean
 	 */
-	public function set_up( string $client_id = '', string $client_secret = '' ): bool {
+	public function set_up( string $client_id = '', string $client_secret = '', string $email = 'email' ): bool {
 		$client_id     = ! empty( $client_id ) ? $client_id : $this->get_client_id();
 		$client_secret = ! empty( $client_secret ) ? $client_secret : $this->get_client_secret();
 
 		$this->client()->setClientId( $client_id );
 		$this->client()->setClientSecret( $client_secret );
-		// Todo: Set the return url based on new endpoint.
-		//$this->client()->setRedirectUri();
+		$this->client()->setRedirectUri('http://localhost/wordpress_website_test/wp-json/wpmudev/v1/auth/confirm');
 		$this->client()->addScope( 'profile' );
-		$this->client()->addScope( 'email' );
+		$this->client()->addScope( $email );
 
 		return true;
 	}
@@ -120,11 +119,11 @@ class Auth extends Base {
 		return $this->client()->createAuthUrl();
 	}
 
-	protected function get_settings() {
+	public function get_settings() {
 		static $settings = null;
 
 		if ( is_null( $settings ) ) {
-			$settings = get_option( 'wpmudev_plugin_test_settings' );
+			$settings = get_option( 'wpmudev_plugin_test_settings', array() );
 		}
 
 		return $settings;

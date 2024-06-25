@@ -14,6 +14,7 @@
 namespace WPMUDEV\PluginTest;
 
 use WPMUDEV\PluginTest\Base;
+use WPMUDEV\PluginTest\App\Admin_Pages\PostsMaintenance;
 
 // If this file is called directly, abort.
 defined( 'WPINC' ) || die;
@@ -94,5 +95,8 @@ final class Loader extends Base {
 	private function init() {
 		App\Admin_Pages\Auth::instance()->init();
 		Endpoints\V1\Auth::instance();
+
+		// Initialize the PostsMaintenance class
+		App\Admin_Pages\PostsMaintenance::instance()->init();
 	}
 }

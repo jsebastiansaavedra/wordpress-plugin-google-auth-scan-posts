@@ -20,12 +20,17 @@
 	],
 	"require": {
 		"php": ">=7.4",
-		"google/apiclient": "^2.15"
+		"google/apiclient": "^2.16",
+		"wp-cli/wp-cli-bundle": "*"
 	},
 	"require-dev": {
 		"wp-coding-standards/wpcs": "^3.0",
 		"dealerdirect/phpcodesniffer-composer-installer": "^1.0",
-		"phpcompatibility/phpcompatibility-wp": "^2.1"
+		"phpcompatibility/phpcompatibility-wp": "^2.1",
+		"coenjacobs/mozart": "^0.7.1",
+		"humbug/php-scoper": "^0.17.5",
+		"phpunit/phpunit": "^9.6",
+		"yoast/phpunit-polyfills": "^2.0"
 	},
 	"scripts": {
 		"post-install-cmd": [
@@ -36,6 +41,6 @@
 		]
 	},
 	"autoload": {
-        "classmap": ["core/", "app/"]
+        "classmap": ["core/", "app/", "cli/", "tests/", "shortcodes/"]
 	}
 }

@@ -7,10 +7,10 @@
 		"test": "tests"
 	},
 	"scripts": {
-		"watch": "clear && webpack --watch --mode development",
-		"compile": "clear && webpack --progress --mode production",
+		"watch": "webpack --watch --mode development",
+		"compile": "webpack --progress --mode production",
 		"translate": "wp i18n make-pot ./ languages/wpmudev-plugin-test.pot --exclude=builds/,node_modules/,src,builds --ignore-domain --allow-root",
-		"build": "clear && grunt preBuildClean && npm run compile && npm run translate && grunt build:pro && grunt finish"
+		"build": "grunt preBuildClean && npm run compile && npm run translate && grunt build:pro && grunt finish"
 	},
 	"author": "WPMU DEV",
 	"license": "GPL-3.0",

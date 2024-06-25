@@ -148,7 +148,7 @@ class Auth extends Base {
 				'clientSecret'     => 'clientSecret',
 				'redirectUrl'      => 'redirectUrl',
 				'restEndpointSave' => 'wpmudev/v1/auth/auth-url',
-				'returnUrl'        => '[Replace with the /wp-json/wpmudev/v1/auth/confirm url]',
+				'returnUrl'        => 'wpmudev/v1/auth/confirm',
 			),
 		);
 	}
